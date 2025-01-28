@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.github.cfparser</groupId>
+	<groupId>com.github.cfmleditor</groupId>
 	<artifactId>cfparser</artifactId>
 	<version>2.13.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -26,14 +26,19 @@
 			<organization>cfparser</organization>
 			<organizationUrl>https://github.com/jjames967</organizationUrl>
 		</developer>
+		<developer>
+			<name>Gareth Edwards</name>
+			<email>ghedwards@gmail.com</email>
+			<organization>cfmleditor</organization>
+			<organizationUrl>https://github.com/ghedwards</organizationUrl>
+		</developer>
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com:cfparser/cfparser.git</connection>
-		<developerConnection>scm:git:git@github.com:cfparser/cfparser.git</developerConnection>
-		<url>git@github.com:cfparser/cfparser.git</url>
-	  <tag>cfparser-2.5.6</tag>
-  </scm>
+		<connection>scm:git:git@github.com:cfmleditor/cfparser.git</connection>
+		<developerConnection>scm:git:git@github.com:cfmleditor/cfparser.git</developerConnection>
+		<url>git@github.com:cfmleditor/cfparser.git</url>
+  	</scm>
 
 	<licenses>
 		<license>
