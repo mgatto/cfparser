@@ -2,15 +2,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.cfmleditor</groupId>
 	<artifactId>cfparser</artifactId>
-	<version>2.13.0-SNAPSHOT</version>
+	<version>2.14.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>coldfusion-parser</name>
 	<description>Stand-Alone ColdFusion Parser. Combined forks from github.com/denuno/cfml.parsing and github.com/denuno/cfml.dictionary.</description>
-	<url>https://github.com/cfparser/cfparser</url>
+	<url>https://github.com/cfmleditor/cfparser</url>
 	<inceptionYear>2012</inceptionYear>
 	<organization>
-		<name>cfparser</name>
+		<name>cfmleditor</name>
 	</organization>
 
 	<developers>
@@ -233,12 +233,14 @@
 	<!-- Sonatype: mvn nexus-staging:release -P deploy -DskipTests -->
 	<distributionManagement>
 		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/cfmleditor/cfparser</url>
 		</snapshotRepository>
 		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/cfmleditor/cfparser</url>
 		</repository>
 	</distributionManagement>
 </project>
