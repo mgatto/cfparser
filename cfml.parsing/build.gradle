@@ -9,7 +9,10 @@ sourceSets.main.antlr.srcDirs = ['src/main/antlr4/cfml']
 sourceSets.main.java.srcDirs = ['src/main/java', "${project.buildDir}/generated-src/antlr/main"]
 
 generateGrammarSource {
-	arguments += ["-package", "cfml", "-visitor"]
+	inputs.files fileTree( 'src/main/antlr4/cfml' ).include( '*.g4' )
+	maxHeapSize = "256m"
+	arguments += [ '-package', 'cfml' ]
+	arguments += [ '-listener', '-visitor' ]
 	outputDirectory = file("${project.buildDir}/generated-src/antlr/main/cfml")
 }
 

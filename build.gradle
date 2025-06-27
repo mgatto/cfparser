@@ -88,10 +88,17 @@ publishing {
 	}
 }
 
+
 subprojects {
 	apply plugin: 'java'
 	apply plugin: 'com.diffplug.gradle.osgi.bndmanifest'
 	apply plugin: 'signing'
+
+
+	javadoc {
+		options.addBooleanOption( "Xdoclint:none", true )
+		options.addBooleanOption( 'html5', true )
+	}
 
 	ext {
 		cfdistrorcFile = file("${System.properties['user.home']}/.cfdistrorc")
