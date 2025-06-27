@@ -52,6 +52,12 @@ public class CFContext implements java.io.Serializable {
 	
 	/** UDF specific functions **/
 	
+	/**
+	 * Checks if the specified function exists in the current context.
+	 * 
+	 * @param _function the name of the function to check
+	 * @return true if the function exists, false otherwise
+	 */
 	public boolean containsFunction(String _function) {
 		return (getUDF(_function) != null);
 	}

@@ -194,8 +194,8 @@ public class Trigger {
 	
 	/**
 	 * Returns the parmeter index for this trigger.
-	 * 
-	 * @return
+	 *
+	 * @return The parameter index for this trigger.
 	 */
 	
 	public int paramIndex() {

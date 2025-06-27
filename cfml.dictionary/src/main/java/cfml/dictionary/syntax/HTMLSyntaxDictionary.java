@@ -39,7 +39,7 @@ public class HTMLSyntaxDictionary extends SyntaxDictionary implements ISyntaxDic
 	/**
 	 * gets any operators (eq, or, and) (lowercase only)
 	 * 
-	 * @return
+	 * @return null
 	 */
 	public Set getOperators() {
 		return null;

@@ -27,6 +27,13 @@ public class CFUndefinedValue extends CFData implements java.io.Serializable {
 	/**
 	 * The following methods are not allowed to be invoked for static instances.
 	 */
+	/**
+	 * Sets the query table data for this instance.
+	 * 
+	 * @param queryTableData the data for the query table
+	 * @param queryColumn the column index for the query
+	 * @throws UnsupportedOperationException if invoked for a static instance
+	 */
 	public void setQueryTableData(List queryTableData, int queryColumn) {
 		throw new UnsupportedOperationException("static instance");
 	}

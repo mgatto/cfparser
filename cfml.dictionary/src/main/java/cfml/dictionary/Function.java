@@ -67,11 +67,9 @@ public class Function extends Procedure {
 	/**
 	 * creates a function with a name and a type
 	 * 
-	 * @param name
-	 *            the name
-	 * @param returntype
-	 *            the type typically string numeric or object
-	 * @param creator
+	 * @param name the name
+	 * @param returntype the type typically string numeric or object
+	 * @param creator byte
 	 */
 	public Function(String name, String returntype, byte creator) {
 		this(name, creator);
@@ -109,6 +107,10 @@ public class Function extends Procedure {
 	
 	/**
 	 * override toString to auto format the function
+	 * 
+	 * Gets the formatted string representation of the function for insertion.
+	 * 
+	 * @return the formatted string for insertion
 	 */
 	public String getInsertion() {
 		StringBuffer sb = new StringBuffer();

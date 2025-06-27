@@ -54,7 +54,7 @@ public class JSSyntaxDictionary extends SyntaxDictionary implements ISyntaxDicti
 	/**
 	 * gets any operators (lowercase only)
 	 * 
-	 * @return
+	 * @return operators HashSet
 	 */
 	public Set getOperators() {
 		return operators;
@@ -63,7 +63,7 @@ public class JSSyntaxDictionary extends SyntaxDictionary implements ISyntaxDicti
 	/**
 	 * gets cfscript specific keywords (if, while, etc);
 	 * 
-	 * @return
+	 * @return scriptkeywords HashSet
 	 */
 	public Set getScriptKeywords() {
 		return scriptkeywords;
@@ -72,7 +72,7 @@ public class JSSyntaxDictionary extends SyntaxDictionary implements ISyntaxDicti
 	/**
 	 * gets all the functions (lowercase only)
 	 * 
-	 * @return
+	 * @return functions keySet
 	 */
 	public Set getFunctions() {
 		return functions.keySet();

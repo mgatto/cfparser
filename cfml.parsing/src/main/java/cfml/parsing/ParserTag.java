@@ -14,10 +14,23 @@ public class ParserTag {
 	private int fEnd;
 	private Attributes fAttributes;
 	
+	/**
+	 * Default constructor for ParserTag.
+	 */
 	public ParserTag() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * Constructs a ParserTag with specified attributes.
+	 *
+	 * @param name The name of the tag.
+	 * @param startTagBegin The beginning position of the start tag.
+	 * @param startTagEnd The ending position of the start tag.
+	 * @param endTagBegin The beginning position of the end tag.
+	 * @param endTagEnd The ending position of the end tag.
+	 * @param attributes The attributes of the tag.
+	 */
 	public ParserTag(String name, int startTagBegin, int startTagEnd, int endTagBegin, int endTagEnd,
 			Attributes attributes) {
 		setName(name);
@@ -30,6 +43,11 @@ public class ParserTag {
 		setAttributes(attributes);
 	}
 	
+	/**
+	 * Constructs a ParserTag from a Jericho StartTag.
+	 *
+	 * @param tag The Jericho StartTag to initialize the ParserTag.
+	 */
 	public ParserTag(StartTag tag) {
 		setName(tag.getName());
 		setBegin(tag.getElement().getEnd());
@@ -46,6 +64,11 @@ public class ParserTag {
 		setAttributes(tag.getAttributes());
 	}
 	
+	/**
+	 * Constructs a ParserTag from a Jericho Tag.
+	 *
+	 * @param tag The Jericho Tag to initialize the ParserTag.
+	 */
 	public ParserTag(net.htmlparser.jericho.Tag tag) {
 		setName(tag.getName());
 		setBegin(tag.getElement().getEnd());
@@ -63,30 +86,36 @@ public class ParserTag {
 	}
 	
 	/**
-	 * @param fName
-	 *            the fName to set
+	 * Sets the name of the tag.
+	 *
+	 * @param fName The name to set.
 	 */
 	public void setName(String fName) {
 		this.fName = fName;
 	}
 	
 	/**
-	 * @return the fName
+	 * Gets the name of the tag.
+	 *
+	 * @return The name of the tag.
 	 */
 	public String getName() {
 		return fName;
 	}
 	
 	/**
-	 * @param fStart
-	 *            the fStart to set
+	 * Sets the beginning position of the tag.
+	 *
+	 * @param fStart The beginning position to set.
 	 */
 	public void setBegin(int fStart) {
 		this.fBegin = fStart;
 	}
 	
 	/**
-	 * @return the fStart
+	 * Gets the beginning position of the tag.
+	 *
+	 * @return The beginning position of the tag.
 	 */
 	public int getBegin() {
 		return fBegin;

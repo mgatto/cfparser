@@ -54,7 +54,7 @@ public class CFSyntaxDictionary extends SyntaxDictionary implements ISyntaxDicti
 	/**
 	 * gets any operators (eq, or, and) (lowercase only)
 	 * 
-	 * @return
+	 * @return operators hashSet
 	 */
 	public Set getOperators() {
 		return operators;
@@ -63,7 +63,7 @@ public class CFSyntaxDictionary extends SyntaxDictionary implements ISyntaxDicti
 	/**
 	 * gets cfscript specific keywords (if, while, etc);
 	 * 
-	 * @return
+	 * @return scriptKeywords hashSet
 	 */
 	public Set getScriptKeywords() {
 		return scriptkeywords;

@@ -137,8 +137,8 @@ public class Parameter implements Comparable {
 	 * 
 	 * @author Mark Drew
 	 * 
-	 * @param availParams
-	 * @return whether its required
+	 * @param availParams the available parameters as name-value pairs
+	 * @return the required status of the parameter
 	 */
 	public int isRequired(HashMap availParams) {
 		
@@ -206,7 +206,7 @@ public class Parameter implements Comparable {
 	/**
 	 * Checks to see if this parameter (attribute) is required
 	 * 
-	 * @return
+	 * @return required
 	 */
 	public boolean isRequired() {
 		return required;
@@ -215,7 +215,7 @@ public class Parameter implements Comparable {
 	/**
 	 * Returns the currently active trigger or null.
 	 * 
-	 * @return
+	 * @return active trigger
 	 */
 	public Trigger activeTrigger() {
 		return activeTrigger;

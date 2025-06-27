@@ -77,7 +77,7 @@ public abstract class SyntaxDictionary {
 	 * loads the xml dictionary "filename" into this object. Note: if this dictionary already has tags defined the new
 	 * items will be added to this dictionary (not replaced)
 	 * 
-	 * @param url
+	 * @param url The URL of the XML dictionary to load.
 	 */
 	public void loadDictionary(String url) {
 		setURL(url);
@@ -89,6 +89,11 @@ public abstract class SyntaxDictionary {
 		}
 	}
 	
+	/**
+	 * Sets the URL for the dictionary.
+	 * 
+	 * @param url The URL to set for the dictionary.
+	 */
 	public void setURL(String url) {
 		this.dictionaryURL = url;
 	}
@@ -97,7 +102,7 @@ public abstract class SyntaxDictionary {
 	 * get all top level language elements (tags)(in lowercase) these are the keys used in the tag HashMap <b>not</b>
 	 * the tag objects them selves
 	 * 
-	 * @return set of all the tag names using the keys
+	 * @return A set of all tag names using the keys.
 	 */
 	public Set<String> getAllElements() {
 		return syntaxelements.keySet();
@@ -181,7 +186,7 @@ public abstract class SyntaxDictionary {
 	 * 
 	 * @param start
 	 *            the string to filter by (i.e. "cfou" will return all tags beginning with "cfou"
-	 * @return set of matching elements.
+	 * @return A set of matching elements.
 	 */
 	public Set<Object> getFilteredElements(String start) {
 		
@@ -210,7 +215,7 @@ public abstract class SyntaxDictionary {
 	 * 
 	 * @param start
 	 *            the string to filter by (i.e. "cfou" will return all tags beginning with "cfou"
-	 * @return set of matching elements.
+	 * @return A set of matching elements.
 	 */
 	public Set<Object> getFilteredScopeVars(String start) {
 		return limitSet(getAllScopeVars(), start);
@@ -222,7 +227,7 @@ public abstract class SyntaxDictionary {
 	 * 
 	 * @param functionName
 	 *            the function whose params should be returned
-	 * @return set of matching elements.
+	 * @return A set of matching elements.
 	 */
 	public Set<Parameter> getFunctionParams(String functionName) {
 		Set<String> entries = functions.keySet();
@@ -343,7 +348,7 @@ public abstract class SyntaxDictionary {
 	 * Gets all the functions in a string Format (lowercase only). In other words the keyset of the function map not the
 	 * function objects
 	 * 
-	 * @return
+	 * @return functions keyset
 	 */
 	public Set<String> getFunctions() {
 		// Assert.isNotNull(functions, "Private member functions is null");
@@ -353,8 +358,8 @@ public abstract class SyntaxDictionary {
 	/**
 	 * retuns a functions usage
 	 * 
-	 * @param functionname
-	 * @return
+	 * @param functionname function name
+	 * @return null
 	 */
 	public String getFunctionUsage(String functionname) {
 		// Before switching to generics this was attempting to cast a Function to a String
@@ -364,8 +369,8 @@ public abstract class SyntaxDictionary {
 	/**
 	 * retuns a functions help text
 	 * 
-	 * @param functionname
-	 * @return
+	 * @param functionname function name string
+	 * @return help text string for function
 	 */
 	public String getFunctionHelp(String functionname) {
 		// Assert.isNotNull(functions, "Private member functions is null");
@@ -383,7 +388,7 @@ public abstract class SyntaxDictionary {
 	/**
 	 * get a function object by name
 	 * 
-	 * @param name
+	 * @param name function name
 	 * @return the function or null if it doesn't exist
 	 */
 	public Function getFunction(String name) {
@@ -397,8 +402,8 @@ public abstract class SyntaxDictionary {
 	/**
 	 * checks to see if the tag is in the dictionary
 	 * 
-	 * @param name
-	 * @return
+	 * @param name tag name
+	 * @return boolean 'true' if tag exists in the syntaxelements dictionary, 'false' if it does not
 	 */
 	public boolean tagExists(String name) {
 		if (this.syntaxelements == DictionaryManager.getDictionary(DictionaryManager.CFDIC_KEY)
@@ -417,8 +422,8 @@ public abstract class SyntaxDictionary {
 	/**
 	 * checks to see if the function is in the dictionary
 	 * 
-	 * @param name
-	 * @return
+	 * @param name function name
+	 * @return boolean 'true' if function exists in the dictionary, 'false' if it does not
 	 */
 	public boolean functionExists(String name) {
 		if (functions == null)

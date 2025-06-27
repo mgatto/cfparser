@@ -31,12 +31,13 @@ package cfml.parsing;
  */
 public class ParseWarning extends ParseMessage {
 	/**
+	 * Constructs a new ParseWarning with the specified details.
 	 * 
-	 * @param lineNum
-	 * @param docStart
-	 * @param docEnd
-	 * @param data
-	 * @param msg
+	 * @param lineNum the line number where the warning occurred
+	 * @param docStart the start position in the document
+	 * @param docEnd the end position in the document
+	 * @param data the data associated with the warning
+	 * @param msg the warning message
 	 * @see ParseMessage
 	 */
 	public ParseWarning(int lineNum, int docStart, int docEnd, String data,

@@ -22,7 +22,7 @@ public class FatalException extends Exception {
 	}
 
 	/**
-	 * @param arg0
+	 * @param arg0 exception string
 	 */
 	public FatalException(String arg0) {
 		super(arg0);
@@ -30,7 +30,7 @@ public class FatalException extends Exception {
 	}
 
 	/**
-	 * @param arg0
+	 * @param arg0 exception throwable
 	 */
 	public FatalException(Throwable arg0) {
 		super(arg0);
@@ -38,8 +38,8 @@ public class FatalException extends Exception {
 	}
 
 	/**
-	 * @param arg0
-	 * @param arg1
+	 * @param arg0 exception string
+	 * @param arg1 exception throwable
 	 */
 	public FatalException(String arg0, Throwable arg1) {
 		super(arg0, arg1);

@@ -114,6 +114,8 @@ public class Tag extends Procedure {
 	 *            Is the tag a hybrid or not
 	 * @param anyAttribute
 	 *            Can the tag take any attribute
+	 * @param endtagrequired
+	 *            Does the tag require an end tag
 	 */
 	public Tag(String name, boolean single, boolean style, byte creator, boolean hybrid, boolean anyAttribute,
 			boolean endtagrequired) {
@@ -127,8 +129,8 @@ public class Tag extends Procedure {
 	
 	/**
 	 * returns true if this is a table tag
-	 * 
-	 * @return
+	 *
+	 * @return True if this is a table tag, false otherwise.
 	 */
 	public boolean isTableTag() {
 		if (getCreatorFlags() == TABLE) {
@@ -139,8 +141,8 @@ public class Tag extends Procedure {
 	
 	/**
 	 * returns true if this is a form tag
-	 * 
-	 * @return
+	 *
+	 * @return True if this is a form tag, false otherwise.
 	 */
 	public boolean isFormTag() {
 		if (getCreatorFlags() == FORM) {
@@ -151,8 +153,8 @@ public class Tag extends Procedure {
 	
 	/**
 	 * Is this tag a sinlge tag or does it have a closing counter part?
-	 * 
-	 * @return if single or not
+	 *
+	 * @return True if the tag is single, false otherwise.
 	 */
 	public boolean isSingle() {
 		return single;
@@ -160,8 +162,8 @@ public class Tag extends Procedure {
 	
 	/**
 	 * Is this tag in xml style (mostly used with is single to tell if the tag shoule be &lt;tag&gt; or &lt;tag/&gt;
-	 * 
-	 * @return if xml style or not
+	 *
+	 * @return True if the tag is in XML style, false otherwise.
 	 */
 	public boolean isXMLStyle() {
 		return xmlstyle;
@@ -169,6 +171,8 @@ public class Tag extends Procedure {
 	
 	/**
 	 * Is this tag a hybrid that can be either single or paired: e.g. &lt;cftransaction&gt; and &lt;cfinvoke&gt;
+	 *
+	 * @return True if the tag is hybrid, false otherwise.
 	 */
 	public boolean isHybrid() {
 		return hybrid;
@@ -176,8 +180,8 @@ public class Tag extends Procedure {
 	
 	/**
 	 * Does this tag required an end tag?
-	 * 
-	 * @return
+	 *
+	 * @return True if the tag requires an end tag, false otherwise.
 	 */
 	public boolean isEndtagrequired() {
 		return endtagrequired;
@@ -185,6 +189,8 @@ public class Tag extends Procedure {
 	
 	/**
 	 * Does the tag allow any attribute: e.g. &lt;cfmodule&gt;
+	 *
+	 * @return True if the tag allows any attribute, false otherwise.
 	 */
 	public boolean allowsAnyAttribute() {
 		return anyAttribute;
@@ -192,8 +198,8 @@ public class Tag extends Procedure {
 	
 	/**
 	 * Is this tag a custom tag
-	 * 
-	 * @return
+	 *
+	 * @return True if this is a custom tag, false otherwise.
 	 */
 	
 	public boolean isCustomTag() {

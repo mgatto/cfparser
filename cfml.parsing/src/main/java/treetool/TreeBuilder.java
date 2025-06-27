@@ -63,9 +63,9 @@ import cfml.parsing.cfml.antlr.XMLParser;
 
 /**
  * Helper class to build trees representing the parsing process of a grammar.
- * 
+ *
  * @author Yang Jiang (yang.jiang.z@gmail.com)
- * 
+ *
  */
 public class TreeBuilder extends JPanel implements MouseListener, ActionListener {
 	
@@ -81,6 +81,11 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 	String fileCotent;
 	TreeNode currentParent;
 	
+	/**
+	 * Entry point for the TreeBuilder application.
+	 *
+	 * @param args Command-line arguments specifying the file to parse.
+	 */
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Source File Tree Viewer");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,6 +111,9 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 		
 	}
 	
+	/**
+	 * Constructs a new TreeBuilder instance.
+	 */
 	public TreeBuilder() {
 		super(new GridLayout(1, 0));
 		
@@ -161,8 +169,8 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 	/**
 	 * Set the current parent of the node. Any node added after this call we be counted as children of the newParent.
 	 * 
-	 * @param newParent
-	 * @return
+	 * @param newParent new parent treeNode
+	 * @return the old parent
 	 */
 	public TreeNode setCurrentParent(TreeNode newParent) {
 		TreeNode oldParent = currentParent;
@@ -177,8 +185,10 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 	/**
 	 * Add a child to the currentParent set by calling setCurrentParent().
 	 * 
-	 * @param name
-	 * @return
+	 * @param name the name of the node
+	 * @param start the starting token for the node
+	 * @param stop the ending token for the node
+	 * @return the newly added TreeNode
 	 */
 	public TreeNode addNode(String name, Token start, Token stop) {
 		int startIndex = -1, stopIndex = -1;
@@ -208,8 +218,9 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 	/**
 	 * Same as addNode(), except that a leaf should contain no child.
 	 * 
-	 * @param name
-	 * @return
+	 * @param name the name of the leaf
+	 * @param token the token associated with the leaf
+	 * @return the newly added TreeNode
 	 */
 	public TreeNode addLeaf(String name, Token token) {
 		TreeNode node = new TreeNode(name, new TextRange(((CommonToken) token).getStartIndex(),
@@ -229,6 +240,8 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 	
 	/**
 	 * Restores the previous parent.
+	 * 
+	 * @return the top TreeNode
 	 */
 	public TreeNode popTop() {
 		TreeNode ret = currentParent;
@@ -291,6 +304,11 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 		tree.expandRow(0);
 	}
 	
+	/**
+	 * Handles mouse click events.
+	 *
+	 * @param e The mouse event.
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (tree.getLastSelectedPathComponent() instanceof TreeNode) {
@@ -303,14 +321,11 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 		}
 	}
 	
-	@Override
-	public void mouseEntered(MouseEvent e) {
-	}
-	
-	@Override
-	public void mouseExited(MouseEvent e) {
-	}
-	
+	/**
+	 * Handles mouse press events.
+	 *
+	 * @param e The mouse event.
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.isPopupTrigger() && tree.getLastSelectedPathComponent() != null) {
@@ -318,6 +333,11 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 		}
 	}
 	
+	/**
+	 * Handles mouse release events.
+	 *
+	 * @param e The mouse event.
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (e.isPopupTrigger() && tree.getLastSelectedPathComponent() != null) {
@@ -325,6 +345,29 @@ public class TreeBuilder extends JPanel implements MouseListener, ActionListener
 		}
 	}
 	
+	/**
+	 * Handles mouse entry events.
+	 *
+	 * @param e The mouse event.
+	 */
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	
+	/**
+	 * Handles mouse exit events.
+	 *
+	 * @param e The mouse event.
+	 */
+	@Override
+	public void mouseExited(MouseEvent e) {
+	}
+	
+	/**
+	 * Handles action events.
+	 *
+	 * @param e The action event.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();

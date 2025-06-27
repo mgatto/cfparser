@@ -17,11 +17,20 @@ import net.htmlparser.jericho.StartTag;
 import net.htmlparser.jericho.StartTagType;
 import net.htmlparser.jericho.Tag;
 
+/**
+ * CFMLSource is a class that represents a source of CFML (ColdFusion Markup Language) content.
+ * It provides methods to parse and manipulate CFML content, as well as to retrieve debugging information.
+ */
 public class CFMLSource implements Logger {
 	
 	private Source fSource;
 	private List<String> messages = new ArrayList<String>();
 	
+	/**
+	 * Constructs a CFMLSource from the given contents.
+	 *
+	 * @param contents The contents to initialize the source.
+	 */
 	public CFMLSource(String contents) {
 		CFMLTags.register();
 		if (contents != null && contents.contains("<!---")) {
@@ -34,6 +43,12 @@ public class CFMLSource implements Logger {
 		fSource.setLogger(this);
 	}
 	
+	/**
+	 * Constructs a CFMLSource from the given contents and parser preferences.
+	 *
+	 * @param contents The contents to initialize the source.
+	 * @param prefs The parser preferences to use.
+	 */
 	public CFMLSource(String contents, ParserPreferences prefs) {
 		CFMLTags.register(prefs);
 		fSource = new Source(contents);
@@ -41,6 +56,12 @@ public class CFMLSource implements Logger {
 		fSource.setLogger(this);
 	}
 	
+	/**
+	 * Constructs a CFMLSource from the given URL.
+	 *
+	 * @param url The URL to initialize the source.
+	 * @throws IOException If an error occurs while reading the URL.
+	 */
 	public CFMLSource(URL url) throws IOException {
 		CFMLTags.register();
 		fSource = new Source(url);
@@ -48,6 +69,13 @@ public class CFMLSource implements Logger {
 		fSource.setLogger(this);
 	}
 	
+	/**
+	 * Constructs a CFMLSource from the given URL and parser preferences.
+	 *
+	 * @param url The URL to initialize the source.
+	 * @param prefs The parser preferences to use.
+	 * @throws IOException If an error occurs while reading the URL.
+	 */
 	public CFMLSource(URL url, ParserPreferences prefs) throws IOException {
 		CFMLTags.register(prefs);
 		fSource = new Source(url);
@@ -55,26 +83,57 @@ public class CFMLSource implements Logger {
 		fSource.setLogger(this);
 	}
 	
+	/**
+	 * Gets debugging information for the source.
+	 *
+	 * @return A string containing debugging information.
+	 */
 	public String getDebuggingInfo() {
 		return fSource.getDebugInfo();
 	}
 	
+	/**
+	 * Gets all elements of the specified start tag type.
+	 *
+	 * @param startTagType The start tag type to filter elements by.
+	 * @return A list of elements matching the start tag type.
+	 */
 	public List<Element> getAllElements(StartTagType startTagType) {
 		return fSource.getAllElements(startTagType);
 	}
 	
+	/**
+	 * Gets all child elements of the source.
+	 *
+	 * @return A list of child elements.
+	 */
 	public List<Element> getChildElements() {
 		return fSource.getChildElements();
 	}
 	
+	/**
+	 * Ignores the specified elements when parsing.
+	 *
+	 * @param allElements The list of elements to ignore.
+	 */
 	public void ignoreWhenParsing(List allElements) {
 		fSource.ignoreWhenParsing(allElements);
 	}
 	
+	/**
+	 * Gets cache debugging information for the source.
+	 *
+	 * @return A string containing cache debugging information.
+	 */
 	public String getCacheDebugInfo() {
 		return fSource.getCacheDebugInfo();
 	}
 	
+	/**
+	 * Gets all elements in the source.
+	 *
+	 * @return A list of all elements.
+	 */
 	public List<Element> getAllElements() {
 		return fSource.getAllElements();
 	}

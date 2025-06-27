@@ -169,7 +169,8 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	
 	/**
 	 * Construct a new sequenced hash map with default initial size and load factor and specified case-sensitivity.
-	 **/
+	 * @param caseSensitive Whether the keys should be case-sensitive.
+	 */
 	public SequencedHashMap(boolean caseSensitive) {
 		sentinel = createSentinel();
 		entries = new FastMap(caseSensitive);
@@ -178,12 +179,11 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	/**
 	 * Construct a new sequenced hash map with the specified initial size and default load factor and case-sensitive
 	 * keys.
-	 * 
-	 * @param initialSize
-	 *            the initial size for the hash table
+	 *
+	 * @param initialSize The initial size for the hash table.
 	 * 
 	 * @see FastMap#FastMap(int)
-	 **/
+	 */
 	public SequencedHashMap(int initialSize) {
 		sentinel = createSentinel();
 		entries = new FastMap(initialSize);
@@ -192,12 +192,20 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	/**
 	 * Construct a new sequenced hash map and add all the elements in the specified map. The order in which the mappings
 	 * in the specified map are added is defined by {@link #putAll(Map)}.
-	 **/
+	 *
+	 * @param m The map whose elements are to be added.
+	 */
 	public SequencedHashMap(Map m) {
 		this();
 		putAll(m);
 	}
 	
+	/**
+	 * Constructs a new sequenced hash map with specified case-sensitivity and adds all the elements in the specified map.
+	 *
+	 * @param m The map whose elements are to be added.
+	 * @param caseSensitive Whether the keys should be case-sensitive.
+	 */
 	public SequencedHashMap(Map m, boolean caseSensitive) {
 		this(caseSensitive);
 		putAll(m);
@@ -210,7 +218,9 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	
 	/**
 	 * Removes an internal entry from the linked list. This does not remove it from the underlying map.
-	 **/
+	 *
+	 * @param entry The entry to remove.
+	 */
 	private static void removeEntry(Entry entry) {
 		entry.next.prev = entry.prev;
 		entry.prev.next = entry.next;
@@ -218,7 +228,9 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	
 	/**
 	 * Inserts a new internal entry to the tail of the linked list. This does not add the entry to the underlying map.
-	 **/
+	 *
+	 * @param entry The entry to insert.
+	 */
 	private void insertEntry(Entry entry) {
 		entry.next = sentinel;
 		entry.prev = sentinel.prev;
@@ -230,6 +242,8 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	
 	/**
 	 * Implements {@link Map#size()}.
+	 *
+	 * @return The number of key-value mappings.
 	 */
 	@Override
 	public int size() {
@@ -238,7 +252,9 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	}
 	
 	/**
-	 * Implements {@link Map#isEmpty()}.
+	 * Returns true if this map contains no key-value mappings.
+	 *
+	 * @return True if this map is empty, false otherwise.
 	 */
 	@Override
 	public boolean isEmpty() {
@@ -933,9 +949,9 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	
 	/**
 	 * Returns the key at the specified index.
-	 * 
-	 * @exception ArrayIndexOutOfBoundsException
-	 *                if the <code>index</code> is <code>&lt; 0</code> or <code>&gt;</code> the size of the map.
+	 * @exception ArrayIndexOutOfBoundsException if the <code>index</code> is <code>&lt; 0</code> or <code>&gt;</code> the size of the map.
+	 * @param index int
+	 * @return the key at the specified index.
 	 */
 	public Object get(int index) {
 		return getEntry(index).getKey();
@@ -944,8 +960,9 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	/**
 	 * Returns the value at the specified index.
 	 * 
-	 * @exception ArrayIndexOutOfBoundsException
-	 *                if the <code>index</code> is <code>&lt; 0</code> or <code>&gt;</code> the size of the map.
+	 * @exception ArrayIndexOutOfBoundsException if the <code>index</code> is <code>&lt; 0</code> or <code>&gt;</code> the size of the map.
+	 * @param index int
+	 * @return the value at the specified index.
 	 */
 	public Object getValue(int index) {
 		return getEntry(index).getValue();
@@ -953,6 +970,8 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	
 	/**
 	 * Returns the index of the specified key.
+	 * @param key Object
+	 * @return the index of the specified key.
 	 */
 	public int indexOf(Object key) {
 		Entry e = (Entry) entries.get(key);
@@ -966,6 +985,7 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	
 	/**
 	 * Returns a key iterator.
+	 * @return key iterator
 	 */
 	public Iterator iterator() {
 		return keySet().iterator();
@@ -973,6 +993,8 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	
 	/**
 	 * Returns the last index of the specified key.
+	 * @param key Object
+	 * @return indexOf key
 	 */
 	public int lastIndexOf(Object key) {
 		// keys in a map are guarunteed to be unique

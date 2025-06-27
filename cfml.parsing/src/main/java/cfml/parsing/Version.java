@@ -6,7 +6,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Version {
-	
+	/**
+	 * Retrieves the version information from the pom.properties file.
+	 *
+	 * @return The version string, or an empty string if the version cannot be determined.
+	 */
 	public static String getVersion() {
 		final InputStream is = Version.class
 				.getResourceAsStream("/META-INF/maven/com.github.cfmleditor/cfml.parsing/pom.properties");

@@ -179,6 +179,7 @@ public class DictionaryManager {
 	
 	/**
 	 * Tell the dictionaries to load based on the config file
+	 * @param prefs dictionary preferences
 	 */
 	public static void initDictionaries(DictionaryPreferences prefs) {
 		fPrefs = prefs;
@@ -186,6 +187,12 @@ public class DictionaryManager {
 		initDictionaries();
 	}
 	
+	/**
+	 * Retrieves the first version key for the specified dictionary.
+	 *
+	 * @param forDictionary The dictionary key to retrieve the version for.
+	 * @return The first version key for the dictionary.
+	 */
 	private static String getInitialDictVersion() {
 		// return
 		// propertyManager.getCurrentDictionary(fInput.getFile().getProject());
@@ -197,8 +204,8 @@ public class DictionaryManager {
 	 * error and wanting to get a fall back dictionary. This might error if there are no versions defined for the given
 	 * dictionary (or if the document is not valid)
 	 * 
-	 * @param forDictionary
-	 * @return
+	 * @param forDictionary the dictionary key to retrieve the version for
+	 * @return the first version key for the dictionary
 	 */
 	public static String getFirstVersion(String forDictionary) {
 		return dictionaryConfig.getElementById(forDictionary).getFirstChild().getAttributes().getNamedItem("key")
@@ -243,7 +250,7 @@ public class DictionaryManager {
 	 * 
 	 * "key" is the version key you would pass in here to load the Coldfusion 7.0 grammar
 	 * 
-	 * @param versionkey
+	 * @param versionkey The version key used to load the grammar.
 	 */
 	public static void loadDictionaryByVersion(String versionkey) {
 		SyntaxDictionary dic = getDictionaryByVersion(versionkey);
@@ -259,8 +266,8 @@ public class DictionaryManager {
 	/**
 	 * Alternate version using JDOM
 	 * 
-	 * @param versionkey
-	 * @return
+	 * @param versionkey version for cache
+	 * @return syntaxDictionary
 	 */
 	public static SyntaxDictionary getDictionaryByVersionAlt(String versionkey) {
 		
@@ -381,8 +388,8 @@ public class DictionaryManager {
 	/**
 	 * Takes a Syntax dictionary from the cache and puts it into the live dictionary
 	 * 
-	 * @param cachekey
-	 * @param livekey
+	 * @param cachekey cache key string
+	 * @param livekey live key string
 	 */
 	public static synchronized void loadDictionaryFromCache(String cachekey, String livekey) {
 		
@@ -433,8 +440,8 @@ public class DictionaryManager {
 	/**
 	 * Adds a SyntaxDictionary to the cache
 	 * 
-	 * @param key
-	 * @param sd
+	 * @param key cache key string
+	 * @param sd syntax dictionary to add to cache
 	 */
 	public static void addDictionaryToCache(String key, SyntaxDictionary sd) {
 		dictionariesCache.put(key, sd);

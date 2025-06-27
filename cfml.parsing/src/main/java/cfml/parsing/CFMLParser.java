@@ -287,8 +287,7 @@ public class CFMLParser {
 	/**
 	 * Initialises the dictionary
 	 * 
-	 * @param newDict
-	 *            the dictionary to init with
+	 * @param newDict the dictionary to init with
 	 */
 	public void setDictionary(SyntaxDictionary newDict) {
 		cfdic = newDict;
@@ -296,7 +295,7 @@ public class CFMLParser {
 	
 	/**
 	 * 
-	 * @return
+	 * @return cf syntax dictionary
 	 */
 	public SyntaxDictionary getDictionary() {
 		return cfdic;

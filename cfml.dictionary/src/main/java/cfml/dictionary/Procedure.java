@@ -221,7 +221,7 @@ public class Procedure implements Comparable {
 	/**
 	 * Sets the help to be associated with this procedure
 	 * 
-	 * @param help
+	 * @param help the help text to set
 	 */
 	public void setHelp(String help) {
 		this.help = help;
@@ -230,7 +230,7 @@ public class Procedure implements Comparable {
 	/**
 	 * Gets the help associated with this procedure.
 	 * 
-	 * @return
+	 * @return the help text
 	 */
 	public String getHelp() {
 		return help;
