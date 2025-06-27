@@ -14,8 +14,8 @@ generateGrammarSource {
 }
 
 ext {
-	antlrVersion = '4.7'
-	slf4jVersion = '1.7.21'
+	antlrVersion = '4.13.2'
+	slf4jVersion = '2.0.17'
 }
 
 jar.manifest.attributes(
@@ -27,8 +27,8 @@ dependencies {
 	antlr group: 'org.antlr', name: 'antlr4', version: antlrVersion
 	implementation group: 'net.htmlparser.jericho', name: 'jericho-html', version: '3.4'
 	implementation group: 'org.antlr', name: 'antlr4-runtime', version: antlrVersion
-	implementation group: 'org.antlr', name: 'antlr-runtime', version: '3.5.2'
 	implementation group: 'javolution', name: 'javolution', version: '5.5.1'
+	// implementation group: 'org.antlr', name: 'antlr-runtime', version: '3.5.2'
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
 	implementation group: 'org.slf4j', name: 'slf4j-simple', version: slf4jVersion
 	testImplementation 'junit:junit:4.13.2'
