@@ -10,7 +10,7 @@ import cfml.parsing.util.ArrayBuilder;
  * Definition of expression tree for a unary expression.
  */
 
-public class CFAnonymousFunctionExpression extends CFExpression implements java.io.Serializable {
+public class CFAnonymousFunctionExpression extends CFExpression {
 	private static final long serialVersionUID = 1L;
 	
 	private CFFuncDeclStatement funcDeclStatement;

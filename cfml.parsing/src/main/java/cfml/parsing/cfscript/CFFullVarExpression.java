@@ -1,6 +1,5 @@
 package cfml.parsing.cfscript;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,7 @@ import cfml.CFSCRIPTLexer;
 import cfml.parsing.cfscript.script.CFScriptStatement;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFFullVarExpression extends CFIdentifier implements Serializable {
+public class CFFullVarExpression extends CFIdentifier {
 	
 	private static final long serialVersionUID = 1;
 	

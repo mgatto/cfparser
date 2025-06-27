@@ -26,7 +26,7 @@ public class FatalException extends Exception {
 	 */
 	public FatalException(String arg0) {
 		super(arg0);
-		// TODO Auto-generated constructor stub
+		// Auto-generated constructor stub
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class FatalException extends Exception {
 	 */
 	public FatalException(Throwable arg0) {
 		super(arg0);
-		// TODO Auto-generated constructor stub
+		// Auto-generated constructor stub
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class FatalException extends Exception {
 	 */
 	public FatalException(String arg0, Throwable arg1) {
 		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
+		// Auto-generated constructor stub
 	}
 
 }

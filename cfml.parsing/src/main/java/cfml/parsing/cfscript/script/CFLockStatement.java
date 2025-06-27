@@ -9,7 +9,7 @@ import cfml.parsing.cfscript.CFIdentifier;
 import cfml.parsing.reporting.ParseException;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFLockStatement extends CFParsedAttributeStatement implements java.io.Serializable {
+public class CFLockStatement extends CFParsedAttributeStatement {
 	
 	private static final long serialVersionUID = 1L;
 	

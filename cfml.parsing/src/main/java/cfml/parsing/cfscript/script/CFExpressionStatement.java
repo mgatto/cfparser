@@ -5,7 +5,7 @@ import java.util.List;
 import cfml.parsing.cfscript.CFExpression;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFExpressionStatement extends CFParsedStatement implements java.io.Serializable {
+public class CFExpressionStatement extends CFParsedStatement {
 	private static final long serialVersionUID = 1L;
 	
 	private CFExpression expression;

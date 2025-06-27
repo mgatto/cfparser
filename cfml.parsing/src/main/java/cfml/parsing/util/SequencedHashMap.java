@@ -66,8 +66,6 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 		// when to stop cloning, and thus you end up in a recursive loop,
 		// continuously cloning the "next" in the list.
 		
-		private static final long serialVersionUID = 1L;
-		
 		private final Object key;
 		private Object value;
 		
@@ -749,16 +747,6 @@ public class SequencedHashMap implements CaseSensitiveMap, Cloneable, Externaliz
 	private static final int REMOVED_MASK = 0x80000000;
 	
 	private class OrderedIterator implements Iterator {
-		/**
-		 * Holds the type that should be returned from the iterator. The value should be either {@link #KEY},
-		 * {@link #VALUE}, or {@link #ENTRY}. To save a tiny bit of memory, this field is also used as a marker for when
-		 * remove has been called on the current object to prevent a second remove on the same element. Essientially, if
-		 * this value is negative (i.e. the bit specified by {@link #REMOVED_MASK} is set), the current position has
-		 * been removed. If positive, remove can still be called.
-		 **/
-		
-		private static final long serialVersionUID = 1L;
-		
 		private int returnType;
 		
 		/**

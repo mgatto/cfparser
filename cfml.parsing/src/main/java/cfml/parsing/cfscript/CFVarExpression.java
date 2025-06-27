@@ -2,7 +2,7 @@ package cfml.parsing.cfscript;
 
 import org.antlr.v4.runtime.Token;
 
-abstract class CFVarExpression extends CFExpression implements java.io.Serializable {
+abstract class CFVarExpression extends CFExpression {
 	private static final long serialVersionUID = 1;
 	
 	protected boolean indirect;

@@ -232,7 +232,6 @@ public class CFScriptStatementVisitor extends CFSCRIPTParserBaseVisitor<CFScript
 		return funcDeclStatement;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public CFScriptStatement visitParameter(ParameterContext ctx) {
 		// System.out.println("visitParameter");

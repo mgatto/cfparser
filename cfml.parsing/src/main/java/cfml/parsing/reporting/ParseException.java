@@ -1,10 +1,8 @@
 package cfml.parsing.reporting;
 
-import java.io.Serializable;
-
 import org.antlr.v4.runtime.Token;
 
-public class ParseException extends IllegalArgumentException implements Serializable {
+public class ParseException extends IllegalArgumentException {
 	
 	private static final long serialVersionUID = 1;
 	

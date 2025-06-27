@@ -18,7 +18,7 @@ public class ParserTag {
 	 * Default constructor for ParserTag.
 	 */
 	public ParserTag() {
-		// TODO Auto-generated constructor stub
+		// Auto-generated constructor stub
 	}
 	
 	/**

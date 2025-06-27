@@ -1,6 +1,6 @@
 package cfml.parsing.cfscript;
 
-public abstract class CFExpression extends CFParsedStatement implements java.io.Serializable {
+public abstract class CFExpression extends CFParsedStatement {
 	private static final long serialVersionUID = 1L;
 	
 	public static byte FUNCTION = 0, ASSIGNMENT = 1, BINARY = 2, LITERAL = 3, IDENTIFIER = 4, VARIABLE = 5, UNARY = 6,

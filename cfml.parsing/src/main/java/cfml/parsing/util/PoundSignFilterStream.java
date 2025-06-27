@@ -305,8 +305,9 @@ public class PoundSignFilterStream extends FilterReader {
 				PoundSignFilterStream psf = new PoundSignFilterStream(new java.io.StringReader(input));
 				char[] buffer = new char[1024];
 				int read = psf.read(buffer);
+				psf.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				// Auto-generated catch block
 				e.printStackTrace();
 			}
 			

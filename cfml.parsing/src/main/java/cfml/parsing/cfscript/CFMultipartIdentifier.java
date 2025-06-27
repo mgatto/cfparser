@@ -7,7 +7,7 @@ import java.util.List;
 import cfml.parsing.cfscript.script.CFScriptStatement;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFMultipartIdentifier extends CFIdentifier implements java.io.Serializable {
+public class CFMultipartIdentifier extends CFIdentifier {
 	private static final long serialVersionUID = 1L;
 	
 	List<CFIdentifier> ids;

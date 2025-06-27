@@ -8,7 +8,7 @@ import cfml.CFSCRIPTLexer;
 import cfml.parsing.cfscript.script.CFScriptStatement;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFLiteral extends CFExpression implements java.io.Serializable {
+public class CFLiteral extends CFExpression {
 	private static final long serialVersionUID = 1L;
 	
 	private String val;

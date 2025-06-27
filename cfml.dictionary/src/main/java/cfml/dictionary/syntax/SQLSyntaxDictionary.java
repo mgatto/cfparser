@@ -18,8 +18,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import cfml.dictionary.ISyntaxDictionary;
-
 /**
  * @author Christopher Bradford The dictionary for SQL keywords to be used in CFQuery tags. Extends CFSyntaxDicionary
  *         for now because CF operators should be color coded. The keywords are loaded from an external file by calling
@@ -29,7 +27,7 @@ import cfml.dictionary.ISyntaxDictionary;
  *         of using CFSyntaxDictionary for the document and an instance of SQLSyntaxDictionary for only the sql
  *         partitions, this class is used for the document and sql partitions now.
  */
-public class SQLSyntaxDictionary extends CFSyntaxDictionary implements ISyntaxDictionary {
+public class SQLSyntaxDictionary extends CFSyntaxDictionary {
 	protected static Set sqlkeywords;
 	
 	/**

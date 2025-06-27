@@ -22,7 +22,8 @@ import javax.swing.JScrollPane;
 
 import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.ANTLRErrorListener;
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonToken;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Parser;
@@ -116,7 +117,7 @@ public class TestUtils {
 	}
 	
 	public static List<CommonToken> runX(String inputstr, final List<String> errors, final boolean quietly, final boolean gui) {
-		ANTLRInputStream input = new ANTLRInputStream(inputstr);
+		final CharStream input = CharStreams.fromString(inputstr);
 		CFSCRIPTLexer lexer = new CFSCRIPTLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		final CFSCRIPTParser parser = new CFSCRIPTParser(tokens);
@@ -132,19 +133,19 @@ public class TestUtils {
 				
 				public void reportAmbiguity(Parser recognizer, DFA dfa, int startIndex, int stopIndex, boolean exact,
 						BitSet ambigAlts, ATNConfigSet configs) {
-					// TODO Auto-generated method stub
+					// Auto-generated method stub
 					
 				}
 				
 				public void reportAttemptingFullContext(Parser recognizer, DFA dfa, int startIndex, int stopIndex,
 						BitSet conflictingAlts, ATNConfigSet configs) {
-					// TODO Auto-generated method stub
+					// Auto-generated method stub
 					
 				}
 				
 				public void reportContextSensitivity(Parser recognizer, DFA dfa, int startIndex, int stopIndex, int prediction,
 						ATNConfigSet configs) {
-					// TODO Auto-generated method stub
+					// Auto-generated method stub
 					
 				}
 				
@@ -155,7 +156,7 @@ public class TestUtils {
 		try {
 			entry = parser.scriptBlock();
 		} catch (Exception e) {
-			tokens.reset(); // rewind input stream
+			tokens.seek(0); // rewind input stream
 			parser.reset();
 			parser.getInterpreter().setPredictionMode(PredictionMode.LL);
 			entry = parser.scriptBlock(); // STAGE 2
@@ -311,7 +312,7 @@ public class TestUtils {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
@@ -341,7 +342,7 @@ public class TestUtils {
 				@Override
 				public void reportAttemptingFullContext(Parser recognizer, DFA dfa, int startIndex, int stopIndex,
 						BitSet conflictingAlts, ATNConfigSet configs) {
-					// TODO Auto-generated method stub
+					// Auto-generated method stub
 					System.out.println("fc" + conflictingAlts.size());
 					
 				}
@@ -349,13 +350,13 @@ public class TestUtils {
 				@Override
 				public void reportAmbiguity(Parser recognizer, DFA dfa, int startIndex, int stopIndex, boolean exact,
 						BitSet ambigAlts, ATNConfigSet configs) {
-					// TODO Auto-generated method stub
+					// Auto-generated method stub
 					System.out.println("amb");
 					
 				}
 			});
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail(e.getMessage());
 		}

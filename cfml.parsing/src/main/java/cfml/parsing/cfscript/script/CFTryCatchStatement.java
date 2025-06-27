@@ -9,7 +9,7 @@ import cfml.parsing.cfscript.CFExpression;
 import cfml.parsing.reporting.ParseException;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFTryCatchStatement extends CFParsedStatement implements java.io.Serializable {
+public class CFTryCatchStatement extends CFParsedStatement {
 	
 	private static final long serialVersionUID = 1;
 	

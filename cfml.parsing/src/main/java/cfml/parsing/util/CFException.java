@@ -7,7 +7,7 @@ package cfml.parsing.util;
 
 import cfml.parsing.cfscript.CFContext;
 
-public class CFException extends Throwable implements java.io.Serializable {
+public class CFException extends Throwable {
 	
 	private static final long serialVersionUID = 1L;
 	

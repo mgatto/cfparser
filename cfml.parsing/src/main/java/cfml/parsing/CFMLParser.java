@@ -13,7 +13,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.BailErrorStrategy;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.DefaultErrorStrategy;
@@ -49,7 +50,6 @@ public class CFMLParser {
 	private Map<String, CFMLSource> fCfmlSources = new HashMap<String, CFMLSource>();
 	protected ArrayList<ParseMessage> messages = new ArrayList<ParseMessage>();
 	private boolean hadFatal;
-	private int errCount = 0;
 	/** Syntax dictionary for working out important things for the parser. */
 	private SyntaxDictionary cfdic;
 	private DictionaryPreferences fDictPrefs = new DictionaryPreferences();
@@ -70,8 +70,7 @@ public class CFMLParser {
 		if (errorReporter == null) {
 			errorReporter = this.errorReporter;
 		}
-		
-		final ANTLRInputStream input = new ANTLRInputStream(_infix);
+		final CharStream input = CharStreams.fromString(_infix);
 		if (lexer == null) {
 			lexer = new CFSCRIPTLexer(input);
 			lexer.removeErrorListeners();
@@ -105,7 +104,7 @@ public class CFMLParser {
 			// TestUtils.showGUI(expressionContext, CFSCRIPTParser.ruleNames);
 			
 		} catch (Exception e) {
-			tokens.reset(); // rewind input stream
+			tokens.seek(0); // rewind input stream
 			parser.reset();
 			parser.getInterpreter().setPredictionMode(PredictionMode.LL);
 			expressionContext = parser.expression(); // STAGE 2
@@ -126,7 +125,7 @@ public class CFMLParser {
 			errorReporter = this.errorReporter;
 		}
 		
-		final ANTLRInputStream input = new ANTLRInputStream(_infix);
+		final CharStream input = CharStreams.fromString(_infix);
 		if (lexer == null) {
 			lexer = new CFSCRIPTLexer(input);
 			lexer.removeErrorListeners();
@@ -160,7 +159,7 @@ public class CFMLParser {
 			// TestUtils.showGUI(expressionContext, CFSCRIPTParser.ruleNames);
 			
 		} catch (Exception e) {
-			tokens.reset(); // rewind input stream
+			tokens.seek(0); // rewind input stream
 			parser.reset();
 			parser.getInterpreter().setPredictionMode(PredictionMode.LL);
 			expressionContext = parser.cfmlExpression(); // STAGE 2
@@ -375,8 +374,6 @@ public class CFMLParser {
 		if (newMsg instanceof ParseError) {
 			if (((ParseError) newMsg).isFatal())
 				hadFatal = true;
-			
-			errCount++;
 		}
 		
 		messages.add(newMsg);
@@ -396,8 +393,6 @@ public class CFMLParser {
 			if (currMsg instanceof ParseError) {
 				if (((ParseError) currMsg).isFatal())
 					hadFatal = true;
-				
-				errCount++;
 			}
 			messages.add(currMsg);
 		}
@@ -503,19 +498,19 @@ public class CFMLParser {
 		
 		@Override
 		public void reportAmbiguity(Parser arg0, DFA arg1, int arg2, int arg3, boolean arg4, BitSet arg5, ATNConfigSet arg6) {
-			// TODO Auto-generated method stub
+			// Auto-generated method stub
 			
 		}
 		
 		@Override
 		public void reportAttemptingFullContext(Parser arg0, DFA arg1, int arg2, int arg3, BitSet arg4, ATNConfigSet arg5) {
-			// TODO Auto-generated method stub
+			// Auto-generated method stub
 			
 		}
 		
 		@Override
 		public void reportContextSensitivity(Parser arg0, DFA arg1, int arg2, int arg3, int arg4, ATNConfigSet arg5) {
-			// TODO Auto-generated method stub
+			// Auto-generated method stub
 			
 		}
 		
@@ -543,7 +538,7 @@ public class CFMLParser {
 	}
 	
 	public CommonTokenStream createTokenStream(String cfscript) throws ParseException, IOException {
-		final ANTLRInputStream input = new ANTLRInputStream(cfscript);
+		final CharStream input = CharStreams.fromString(cfscript);
 		final CFSCRIPTLexer lexer = new CFSCRIPTLexer(input);
 		lexer.removeErrorListeners();
 		return new CommonTokenStream(lexer);
@@ -575,7 +570,7 @@ public class CFMLParser {
 			 * throw new ParseException(e.getOffendingToken(), "Unexpected \'" +
 			 * parser.getTokenErrorDisplay(e.getOffendingToken()) + "\' (" + e.getOffendingToken().getText() + ")");
 			 */
-			tokens.reset(); // rewind input stream
+			tokens.seek(0); // rewind input stream
 			parser.reset();
 			parser.addErrorListener(errorReporter);
 			

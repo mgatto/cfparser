@@ -102,7 +102,7 @@ public class CFCatchStatement implements CFScriptStatement {
 	
 	@Override
 	public Token getToken() {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		return null;
 	}
 	
@@ -127,19 +127,19 @@ public class CFCatchStatement implements CFScriptStatement {
 	
 	@Override
 	public int getOffset() {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		return 0;
 	}
 	
 	@Override
 	public int getLine() {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		return 0;
 	}
 	
 	@Override
 	public int getColumn() {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		return 0;
 	}
 }

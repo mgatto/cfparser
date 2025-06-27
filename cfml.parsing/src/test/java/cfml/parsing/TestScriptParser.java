@@ -36,7 +36,7 @@ public class TestScriptParser {
 		try {
 			scriptStatement = fCfmlParser.parseScriptBlockContext(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -154,14 +154,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/ScriptComponent.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -178,14 +178,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/ScriptComponentHarder.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -203,14 +203,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/ScriptComponentWow.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -228,14 +228,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/ScriptComponentCrazy.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -253,14 +253,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/fw1.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -278,14 +278,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/CFCWithColonMetadata.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -311,7 +311,7 @@ public class TestScriptParser {
 					try {
 						scriptStatement = fCfmlParser.parseScriptFile(file.getAbsolutePath());
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+						// Auto-generated catch block
 						e.printStackTrace();
 						fail("whoops! " + e.getMessage());
 					}
@@ -323,7 +323,7 @@ public class TestScriptParser {
 				}
 			}
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -556,14 +556,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/static.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -581,14 +581,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/abstract_modifier.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -606,14 +606,14 @@ public class TestScriptParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/final_modifier.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}

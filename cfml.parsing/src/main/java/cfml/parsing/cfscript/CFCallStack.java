@@ -2,7 +2,7 @@ package cfml.parsing.cfscript;
 
 import java.util.Stack;
 
-public class CFCallStack extends Stack<CFCall> implements java.io.Serializable {
+public class CFCallStack extends Stack<CFCall> {
 	
 	private static final long serialVersionUID = 1L;
 	

@@ -11,11 +11,9 @@ import cfml.parsing.utils.TestUtils;
 
 public class TestScriptMultipleAssignment {
 	
-	private CFMLParser fCfmlParser;
-	
 	@Before
 	public void setUp() throws Exception {
-		fCfmlParser = new CFMLParser();
+		new CFMLParser();
 	}
 	
 	@Test

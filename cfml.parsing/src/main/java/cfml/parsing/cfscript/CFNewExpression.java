@@ -8,7 +8,7 @@ import org.antlr.v4.runtime.Token;
 import cfml.parsing.cfscript.script.CFScriptStatement;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFNewExpression extends CFExpression implements java.io.Serializable {
+public class CFNewExpression extends CFExpression {
 	
 	private static final long serialVersionUID = 1L;
 	

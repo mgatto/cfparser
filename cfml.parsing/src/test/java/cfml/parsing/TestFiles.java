@@ -14,7 +14,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.atn.PredictionMode;
 import org.junit.Rule;
@@ -77,7 +78,7 @@ public class TestFiles {
 		final String expectedTokens = getTokens(expectedFileText);
 		String expectedTree = getTree(expectedFileText);
 		final List<String> errors = new ArrayList<String>();
-		final ANTLRInputStream input = new ANTLRInputStream(inputString);
+		final CharStream input = CharStreams.fromString(inputString);
 		final CFSCRIPTLexer lexer = new CFSCRIPTLexer(input);
 		
 		final String actualTokens = printTokens(lexer);
@@ -103,7 +104,7 @@ public class TestFiles {
 		try {
 			parseTree = parser.scriptBlock();
 		} catch (Exception e) {
-			tokens.reset(); // rewind input stream
+			tokens.seek(0); // rewind input stream
 			parser.reset();
 			parser.getInterpreter().setPredictionMode(PredictionMode.LL);
 			parseTree = parser.scriptBlock(); // STAGE 2

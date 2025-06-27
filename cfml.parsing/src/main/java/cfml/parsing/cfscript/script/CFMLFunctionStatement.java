@@ -1,6 +1,5 @@
 package cfml.parsing.cfscript.script;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +10,7 @@ import cfml.parsing.cfscript.CFExpression;
 import cfml.parsing.cfscript.CFIdentifier;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFMLFunctionStatement extends CFParsedAttributeStatement implements Serializable {
+public class CFMLFunctionStatement extends CFParsedAttributeStatement {
 	
 	private static final long serialVersionUID = 1L;
 	

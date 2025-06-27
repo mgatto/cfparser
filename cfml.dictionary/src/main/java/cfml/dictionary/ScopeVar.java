@@ -35,10 +35,10 @@ public class ScopeVar implements Comparable {
 	protected String type;
 	protected String name;
 	protected String help;
-	public ScopeVar(String type, String val)
+	public ScopeVar(String typeA, String nameA)
 	{
-		type = type;
-		name = val;
+		type = typeA;
+		name = nameA;
 		this.help = "";	// Must set this to something even if there is no help
 	}
 	

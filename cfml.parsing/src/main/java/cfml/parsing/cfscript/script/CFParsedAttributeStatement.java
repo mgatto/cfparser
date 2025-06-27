@@ -1,6 +1,5 @@
 package cfml.parsing.cfscript.script;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,7 +18,7 @@ import cfml.parsing.reporting.ParseException;
 import cfml.parsing.util.ArrayBuilder;
 import cfml.parsing.util.CFException;
 
-abstract public class CFParsedAttributeStatement extends CFParsedStatement implements Serializable {
+abstract public class CFParsedAttributeStatement extends CFParsedStatement {
 	private static final long serialVersionUID = 1L;
 	
 	private Map<CFIdentifier, CFExpression> attributes;

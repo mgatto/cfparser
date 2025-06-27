@@ -19,8 +19,6 @@ import cfml.parsing.utils.TestUtils;
 public class TestScriptTernary {
 	
 	private CFMLParser fCfmlParser;
-	private static final String sourceUrlFile = "file:src/test/resources/cfml/test1.cfm";
-	
 	@Before
 	public void setUp() throws Exception {
 		fCfmlParser = new CFMLParser();
@@ -50,7 +48,7 @@ public class TestScriptTernary {
 		try {
 			scriptStatement = fCfmlParser.parseScriptBlockContext(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		List<ParseTree> nodesList = TestUtils.getLeaves(scriptStatement);
@@ -65,7 +63,7 @@ public class TestScriptTernary {
 		try {
 			scriptStatement = fCfmlParser.parseScriptBlockContext(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		List<ParseTree> nodesList = TestUtils.getLeaves(scriptStatement);

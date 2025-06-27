@@ -11,12 +11,9 @@ import cfml.parsing.utils.TestUtils;
 
 public class TestScriptNestedAND {
 	
-	private CFMLParser fCfmlParser;
-	private static final String sourceUrlFile = "file:src/test/resources/cfml/test1.cfm";
-	
 	@Before
 	public void setUp() throws Exception {
-		fCfmlParser = new CFMLParser();
+		new CFMLParser();
 	}
 	
 	@Test

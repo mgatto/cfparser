@@ -22,7 +22,7 @@ public class TestCFMLFunctionStatement {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}

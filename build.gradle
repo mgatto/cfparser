@@ -106,8 +106,8 @@ subprojects {
 		copyTo 'META-INF/MANIFEST.MF'
 	}
 
-	sourceCompatibility = 1.8
-	targetCompatibility = 1.8
+	sourceCompatibility = 1.11
+	targetCompatibility = 1.11
 	tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
 	task sourcesJar(type: Jar) {

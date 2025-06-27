@@ -26,7 +26,7 @@ public class TestArraysStructs {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}
@@ -148,7 +148,7 @@ public class TestArraysStructs {
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 			fail("whoops! " + e.getMessage());
 		}

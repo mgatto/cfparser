@@ -24,7 +24,7 @@ import java.util.Map;
 import cfml.parsing.cfscript.CFExpression;
 import cfml.parsing.cfscript.CFIdentifier;
 
-public class CFTagStatement extends CFParsedAttributeStatement implements java.io.Serializable {
+public class CFTagStatement extends CFParsedAttributeStatement {
 	
 	private static final long serialVersionUID = 1L;
 	

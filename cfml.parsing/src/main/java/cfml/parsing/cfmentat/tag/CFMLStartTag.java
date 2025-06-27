@@ -17,7 +17,7 @@ public class CFMLStartTag extends StartTagTypeGenericImplementation {
 	public class AttributeItem {
 		
 		public AttributeItem(int linePos, int i, int inputPos, String attrName, String attrValue) {
-			// TODO Auto-generated constructor stub
+			// Auto-generated constructor stub
 		}
 		
 	}

@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.atn.PredictionMode;
 import org.junit.Assert;
@@ -182,7 +183,7 @@ public class TestTagFiles {
 	
 	public static final ParseInfo parse(final String inputString) throws IOException, URISyntaxException {
 		final List<String> errors = new ArrayList<String>();
-		final ANTLRInputStream input = new ANTLRInputStream(inputString);
+		final CharStream input = CharStreams.fromString(inputString);
 		final CFSCRIPTLexer lexer = new CFSCRIPTLexer(input);
 		
 		final String actualTokens = printTokens(lexer);
@@ -198,7 +199,7 @@ public class TestTagFiles {
 		try {
 			parseTree = parser.scriptBlock();
 		} catch (Exception e) {
-			tokens.reset(); // rewind input stream
+			tokens.seek(0); // rewind input stream
 			parser.reset();
 			parser.getInterpreter().setPredictionMode(PredictionMode.LL);
 			parseTree = parser.scriptBlock(); // STAGE 2
@@ -214,7 +215,7 @@ public class TestTagFiles {
 	
 	public static final ParseInfo parseExpression(final String inputString) throws IOException, URISyntaxException {
 		final List<String> errors = new ArrayList<String>();
-		final ANTLRInputStream input = new ANTLRInputStream(inputString);
+		final CharStream input = CharStreams.fromString(inputString);
 		final CFSCRIPTLexer lexer = new CFSCRIPTLexer(input);
 		
 		final String actualTokens = printTokens(lexer);
@@ -230,7 +231,7 @@ public class TestTagFiles {
 		try {
 			parseTree = parser.expression();
 		} catch (Exception e) {
-			tokens.reset(); // rewind input stream
+			tokens.seek(0); // rewind input stream
 			parser.reset();
 			parser.getInterpreter().setPredictionMode(PredictionMode.LL);
 			parseTree = parser.expression(); // STAGE 2

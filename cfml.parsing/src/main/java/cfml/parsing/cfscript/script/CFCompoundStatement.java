@@ -10,7 +10,7 @@ import java.util.List;
 import cfml.parsing.cfscript.CFExpression;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFCompoundStatement extends CFParsedStatement implements CFScriptStatement, java.io.Serializable {
+public class CFCompoundStatement extends CFParsedStatement {
 	private static final long serialVersionUID = 1L;
 	
 	private ArrayList<CFScriptStatement> statements; // List of CFStatements

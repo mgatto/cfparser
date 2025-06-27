@@ -38,7 +38,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
-import org.jdom2.xpath.XPath;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -283,21 +282,22 @@ public class DictionaryManager {
 				URL configurl = new URL(dictionaryConfigURL, "dictionaryconfig.xml");
 				org.jdom2.Document document = builder.build(configurl);
 				
-				XPath x = XPath.newInstance("//dictionary[@id='CF_DICTIONARY']/version[@key=\'" + versionkey
-						+ "\']/grammar[1]");
+				org.jdom2.xpath.XPathFactory xFactory = org.jdom2.xpath.XPathFactory.instance();
+				org.jdom2.xpath.XPathExpression<Element> x = xFactory.compile("//dictionary[@id='CF_DICTIONARY']/version[@key='" + versionkey
+						+ "']/grammar[1]", org.jdom2.filter.Filters.element());
 				
-				Element grammerElement = (Element) x.selectSingleNode(document);
+				Element grammerElement = x.evaluateFirst(document);
 				dic = new SQLSyntaxDictionary();
 				dic.loadDictionary(getDictionaryLocation(grammerElement.getAttributeValue("location")));
 				dictionaryVersionCache.put(versionkey, dic);
 			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
+				// Auto-generated catch block
 				e.printStackTrace();
 			} catch (JDOMException e) {
-				// TODO Auto-generated catch block
+				// Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				// Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -372,7 +372,7 @@ public class DictionaryManager {
 					} catch (MalformedURLException e) {
 						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
+						// Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -429,7 +429,7 @@ public class DictionaryManager {
 			loadDictionaryByVersion(cachekey);
 			// try again..
 			loadDictionaryFromCache(cachekey, livekey, true);
-		} else if (cachekey != null || cachekey.length() > 0) {
+		} else if (cachekey != null && cachekey.length() > 0) {
 			return;
 		} else {
 			throw new IllegalArgumentException("Cache key: " + cachekey + " is not in the cache"

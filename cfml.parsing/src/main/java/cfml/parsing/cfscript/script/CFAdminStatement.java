@@ -1,13 +1,12 @@
 package cfml.parsing.cfscript.script;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Map;
 
 import cfml.parsing.cfscript.CFExpression;
 import cfml.parsing.cfscript.CFIdentifier;
 
-public class CFAdminStatement extends CFParsedAttributeStatement implements Serializable {
+public class CFAdminStatement extends CFParsedAttributeStatement {
 	
 	private static final long serialVersionUID = 1L;
 	

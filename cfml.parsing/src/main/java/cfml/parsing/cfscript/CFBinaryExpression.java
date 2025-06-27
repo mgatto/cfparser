@@ -8,7 +8,7 @@ import cfml.CFSCRIPTLexer;
 import cfml.parsing.cfscript.script.CFScriptStatement;
 import cfml.parsing.util.ArrayBuilder;
 
-public class CFBinaryExpression extends CFExpression implements java.io.Serializable {
+public class CFBinaryExpression extends CFExpression {
 	
 	private static final long serialVersionUID = 1L;
 	

@@ -47,10 +47,11 @@ public class TestPoundSignFilterStream {
 				char[] buffer = new char[1024];
 				int read = psf.read(buffer);
 				System.out.println("BEFORE: " + input.length() + "; AFTER: " + read + "; Added: " + psf.getAdded()
-						+ "; Total = " + (read - psf.getAdded()));
+				+ "; Total = " + (read - psf.getAdded()));
 				System.out.println(input + " => " + new String(buffer, 0, read));
+				psf.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				// Auto-generated catch block
 				e.printStackTrace();
 			}
 			

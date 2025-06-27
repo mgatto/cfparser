@@ -1,7 +1,5 @@
 package cfml.parsing.util;
 
-import java.io.Serializable;
-
 import javolution.util.FastComparator;
 
 /**
@@ -11,7 +9,7 @@ import javolution.util.FastComparator;
  * how case-insensitivity is implemented.
  */
 public class FastMap<K, V> extends javolution.util.FastMap<String, V>
-		implements CaseSensitiveMap<String, V>, Serializable, Cloneable {
+		implements CaseSensitiveMap<String, V>, Cloneable {
 	static final long serialVersionUID = 1;
 	
 	public static final boolean CASE_SENSITIVE = true;
@@ -32,6 +30,7 @@ public class FastMap<K, V> extends javolution.util.FastMap<String, V>
 	 * 
 	 * @param map the FastMap to copy
 	 */
+	@SuppressWarnings("deprecation")
 	public FastMap(FastMap<String, V> map) {
 		setKeyComparator(map.getKeyComparator()); // must be done before
 		// putAll()

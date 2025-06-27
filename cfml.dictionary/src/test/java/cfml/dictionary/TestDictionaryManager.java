@@ -2,8 +2,6 @@ package cfml.dictionary;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Set;
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -32,7 +30,7 @@ public class TestDictionaryManager {
 		DictionaryManager.initDictionaries();
 		SyntaxDictionary fun = DictionaryManager.getDictionary(DictionaryPreferenceConstants.CFDIC_KEY);
 		System.err.println(fun.dictionaryURL);
-		Set wee = fun.getAllTags();
+		fun.getAllTags();
 		assertNotNull(fun);
 	}
 	
@@ -42,7 +40,7 @@ public class TestDictionaryManager {
 		DictionaryManager.initDictionaries();
 		SyntaxDictionary fun = DictionaryManager.getDictionaryByVersion(fPrefs.getCFDictionary());
 		System.err.println(fun.dictionaryURL);
-		Set wee = fun.getAllTags();
+		fun.getAllTags();
 		assertNotNull(fun);
 	}
 	

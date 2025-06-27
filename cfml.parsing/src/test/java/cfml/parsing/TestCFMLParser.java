@@ -32,10 +32,10 @@ public class TestCFMLParser {
 			fCfmlParser.addCFMLSource(new URL(sourceUrlFile));
 			
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		fCfmlParser.parse();
@@ -73,7 +73,7 @@ public class TestCFMLParser {
 		try {
 			path = new URL(sourceUrlFile).getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		// has to be the exact start pos of the tag
@@ -90,7 +90,7 @@ public class TestCFMLParser {
 		try {
 			path = new URL(sourceUrlFile).getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		ParserTag parserTag = fCfmlParser.getCFMLSource(path).getEnclosingTag(592);
@@ -106,7 +106,7 @@ public class TestCFMLParser {
 		try {
 			path = new URL(sourceUrlFile).getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		ParserTag parserTag = fCfmlParser.getCFMLSource(path).getNextTag(547);
@@ -123,7 +123,7 @@ public class TestCFMLParser {
 		try {
 			path = new URL(sourceUrlFile).getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		ParserTag parserTag = fCfmlParser.getCFMLSource(path).getPreviousTag(833);
@@ -137,7 +137,7 @@ public class TestCFMLParser {
 		try {
 			path = new URL(sourceUrlFile).getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFMLSource cfmlSource = fCfmlParser.getCFMLSource(path);
@@ -146,19 +146,18 @@ public class TestCFMLParser {
 	
 	@Test
 	public void testParseScript() {
-		String path = "";
 		String script = "var x = 1; y = 5; createObject('java','java.lang.String');";
 		try {
-			path = new URL(sourceUrlFile).getPath();
+			new URL(sourceUrlFile).getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -172,19 +171,18 @@ public class TestCFMLParser {
 	
 	@Test
 	public void testParseScriptMissingSemiColon() {
-		String path = "";
 		String script = "var x = 1; y = 5 createObject('java','java.lang.String')";
 		try {
-			path = new URL(sourceUrlFile).getPath();
+			new URL(sourceUrlFile).getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(fCfmlParser.printMessages());
@@ -194,11 +192,10 @@ public class TestCFMLParser {
 	@Test
 	public void testParseScriptMissingAssignment() {
 		String script = "var x = 1; y =; createObject('java','java.lang.String');";
-		CFScriptStatement scriptStatement = null;
 		try {
-			scriptStatement = fCfmlParser.parseScript(script);
+			fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			return;
 		}
 		// assertNotNull(scriptStatement);
@@ -212,7 +209,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertNotNull(scriptStatement);
@@ -229,7 +226,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertNotNull(scriptStatement);
@@ -247,14 +244,14 @@ public class TestCFMLParser {
 		try {
 			path = new URL(sourceUrlFile).getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(scriptStatement.toString());
@@ -267,14 +264,14 @@ public class TestCFMLParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/ScriptComponent.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -288,14 +285,14 @@ public class TestCFMLParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/ScriptComponentHarder.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -310,7 +307,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertNotNull(scriptStatement);
@@ -325,14 +322,14 @@ public class TestCFMLParser {
 		try {
 			path = new URL("file:src/test/resources/cfml/ScriptComponentWow.cfc").getPath();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		CFScriptStatement scriptStatement = null;
 		try {
 			scriptStatement = fCfmlParser.parseScriptFile(path);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -347,7 +344,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -362,7 +359,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -379,7 +376,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertNotNull(scriptStatement);
@@ -393,7 +390,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertNotNull(scriptStatement);
@@ -407,7 +404,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertNotNull(scriptStatement);
@@ -421,7 +418,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertNotNull(scriptStatement);
@@ -435,7 +432,7 @@ public class TestCFMLParser {
 		try {
 			scriptStatement = fCfmlParser.parseScript(script);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertNotNull(scriptStatement);

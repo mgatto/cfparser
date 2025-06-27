@@ -204,12 +204,6 @@ public class CFMLSource implements Logger {
 		return newTag;
 	}
 	
-	private ParserTag makeParserTag(net.htmlparser.jericho.StartTag tag) {
-		ParserTag newTag = new ParserTag(tag);
-		return newTag;
-		
-	}
-	
 	@Override
 	public void error(String message) {
 		messages.add(message);
