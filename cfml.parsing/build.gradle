@@ -31,7 +31,7 @@ dependencies {
 	implementation group: 'net.htmlparser.jericho', name: 'jericho-html', version: '3.4'
 	implementation group: 'org.antlr', name: 'antlr4-runtime', version: antlrVersion
 	implementation group: 'javolution', name: 'javolution', version: '5.5.1'
-	// implementation group: 'org.antlr', name: 'antlr-runtime', version: '3.5.2'
+	implementation group: 'org.antlr', name: 'antlr-runtime', version: '3.5.2'
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
 	implementation group: 'org.slf4j', name: 'slf4j-simple', version: slf4jVersion
 	testImplementation 'junit:junit:4.13.2'
