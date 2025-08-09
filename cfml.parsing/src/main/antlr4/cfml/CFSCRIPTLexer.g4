@@ -178,6 +178,7 @@ MINUSMINUS: '--';
 MODOPERATOR: '%' -> type(MOD);
 CONCAT: '&';
 EQUALSEQUALSOP: '==' -> type(EQ);
+EQUALSEQUALSEQUALSOP: '===' -> type(EQ);
 LAMBDAOP: '=>';
 EQUALSOP: '=';
 PLUSEQUALS: '+=';
@@ -322,6 +323,7 @@ LESSTHANEQUALS: '<=' -> type(LTE);
 GREATERTHAN: '>' -> type(GT);
 GREATERTHANEQUALS: '>=' -> type(GTE);
 NOTEQUALS: '!=' -> type(NEQ);
+NOTEQUALSEQUALS: '!==' -> type(NEQ);
 COMMA: ',';
   
   
