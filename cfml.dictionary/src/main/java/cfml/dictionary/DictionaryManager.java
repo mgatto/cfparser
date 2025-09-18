@@ -50,7 +50,6 @@ import cfml.dictionary.syntax.SQLSyntaxDictionary;
 
 /**
  * @author Rob
- * 
  *         This class loads all the dictionaries and can be used to get specific dictionaries. This (hopefully) well
  *         help in abstracting the dictionaries not intended to be instantiated
  */
@@ -68,12 +67,12 @@ public class DictionaryManager {
 	/** the (yet to be made) html dictionary */
 	public static final String HTDIC_KEY = DictionaryPreferenceConstants.HTDIC_KEY;
 	/** all the dictionaries */
-	private static Map<String, SyntaxDictionary> dictionaries = new HashMap<>();
-	/** the dictionary cache - for swtiching between grammars */
+	private static final Map<String, SyntaxDictionary> dictionaries = new HashMap<>();
+	/** the dictionary cache - for switching between grammars */
 	private static Map<String, SyntaxDictionary> dictionariesCache = new HashMap<>();
 	
 	/** map of versions, might be a replication of the above */
-	private static Map<String, SyntaxDictionary> dictionaryVersionCache = new HashMap<>();
+	private static final Map<String, SyntaxDictionary> dictionaryVersionCache = new HashMap<>();
 	
 	/** the dictionary config file in DOM form */
 	private static Document dictionaryConfig = null;
@@ -115,7 +114,7 @@ public class DictionaryManager {
 			factory.setIgnoringElementContentWhitespace(true);
 			factory.setCoalescing(true);
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			if (fPrefs.getDictionaryDir().length() != 0) {
+			if (!fPrefs.getDictionaryDir().isEmpty()) {
 				dictionaryConfig = builder.parse(new File(fPrefs.getDictionaryDir() + "/dictionaryconfig.xml"));
 			} else {
 				// System.out.println("u->" + fBuiltInDictionaryPath + "dictionaryconfig.xml");
@@ -153,7 +152,7 @@ public class DictionaryManager {
 		
 		// load the default dictionaries into the cache
 		// this is kind of weak but it'll do pig... it'll do...
-		if (cfdictversion.trim().length() == 0) {
+		if (cfdictversion.trim().isEmpty()) {
 			cfdictversion = getFirstVersion(CFDIC_KEY);
 		}
 		String htdictversion = getFirstVersion(HTDIC_KEY);
@@ -170,9 +169,6 @@ public class DictionaryManager {
 		loadDictionaryFromCache(htdictversion, HTDIC_KEY);
 		loadDictionaryFromCache(jsdictversion, JSDIC_KEY);
 		
-		// System.out.println("Dictionaries initialized in " +
-		// (System.currentTimeMillis() - time) + " ms");
-
 		initialized = true;
 	}
 	
@@ -189,12 +185,9 @@ public class DictionaryManager {
 	/**
 	 * Retrieves the first version key for the specified dictionary.
 	 *
-	 * @param forDictionary The dictionary key to retrieve the version for.
 	 * @return The first version key for the dictionary.
 	 */
 	private static String getInitialDictVersion() {
-		// return
-		// propertyManager.getCurrentDictionary(fInput.getFile().getProject());
 		return CF_DICTIONARY;
 	}
 	
@@ -271,7 +264,7 @@ public class DictionaryManager {
 	public static SyntaxDictionary getDictionaryByVersionAlt(String versionkey) {
 		
 		if (dictionaryVersionCache.containsKey(versionkey)) {
-			return (SyntaxDictionary) dictionaryVersionCache.get(versionkey);
+			return dictionaryVersionCache.get(versionkey);
 		} else {
 			SAXBuilder builder = new SAXBuilder();
 			SyntaxDictionary dic = new SQLSyntaxDictionary();
@@ -356,7 +349,7 @@ public class DictionaryManager {
 	}
 	
 	private static String getDictionaryLocation(String path) {
-		if (fPrefs.getDictionaryDir().length() == 0) {
+		if (fPrefs.getDictionaryDir().isEmpty()) {
 			path = DictionaryManager.class.getResource("/org.cfeclipse.cfml/dictionary/" + path).toString();
 			if (path == null) {
 				path = fBuiltInDictionaryPath + path;
@@ -409,12 +402,12 @@ public class DictionaryManager {
 		
 		if (dictionariesCache.containsKey(cachekey) && dictionaries.containsKey(livekey)) {
 			// Object tdic = dictionaries.get(livekey);
-			Object tdic = dictionariesCache.get(cachekey);
+			SyntaxDictionary tdic = dictionariesCache.get(cachekey);
 			
 			dictionaries.put(livekey, tdic);
 		} else if (dictionariesCache.containsKey(cachekey)) {
 			dictionaries.put(livekey, dictionariesCache.get(cachekey));
-		} else if (!dictionariesCache.containsKey(cachekey) && cachekey != null && cachekey.length() > 0) {
+		} else if (!dictionariesCache.containsKey(cachekey) && cachekey != null && !cachekey.isEmpty()) {
 			if (retry) {
 				// We've already tried to load the dictionary, so something must
 				// be broken.
@@ -429,7 +422,7 @@ public class DictionaryManager {
 			loadDictionaryByVersion(cachekey);
 			// try again..
 			loadDictionaryFromCache(cachekey, livekey, true);
-		} else if (cachekey != null && cachekey.length() > 0) {
+		} else if (cachekey != null && !cachekey.isEmpty()) {
 			return;
 		} else {
 			// Create a defensive copy of the keySet to avoid ConcurrentModificationException
@@ -471,9 +464,8 @@ public class DictionaryManager {
 	 */
 	public static synchronized SyntaxDictionary getDictionary(String key) {
 		// System.out.println("Getting dictionary " + key);
-		SyntaxDictionary dict = dictionaries.get(key);
 		// System.out.println("GOT: " + dict);
-		return dict;
+		return dictionaries.get(key);
 	}
 	
 	/**

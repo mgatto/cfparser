@@ -1,9 +1,6 @@
 package cfml.dictionary;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Trigger - represents the attribute conditions required to trigger (allow) an attribute to be available. For example,
@@ -16,7 +13,7 @@ import java.util.Set;
  * 		
  */
 public class Trigger {
-	protected HashMap triggerParams = new HashMap();
+	protected HashMap triggerParams;
 	protected boolean isRequired = false;
 	protected int index = -1;
 	
