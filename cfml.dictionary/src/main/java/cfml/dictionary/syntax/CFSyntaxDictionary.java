@@ -111,6 +111,8 @@ public class CFSyntaxDictionary extends SyntaxDictionary implements ISyntaxDicti
 		operators.add("is");
 		operators.add("does");
 		operators.add("contains");
+    operators.add("ct");
+    operators.add("nct");
 		operators.add("greater");
 		operators.add("than");
 		operators.add("less");
