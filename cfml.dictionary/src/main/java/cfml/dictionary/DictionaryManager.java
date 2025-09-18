@@ -68,12 +68,12 @@ public class DictionaryManager {
 	/** the (yet to be made) html dictionary */
 	public static final String HTDIC_KEY = DictionaryPreferenceConstants.HTDIC_KEY;
 	/** all the dictionaries */
-	private static Map dictionaries = new HashMap();
+	private static Map<String, SyntaxDictionary> dictionaries = new HashMap<>();
 	/** the dictionary cache - for swtiching between grammars */
-	private static Map dictionariesCache = new HashMap();
+	private static Map<String, SyntaxDictionary> dictionariesCache = new HashMap<>();
 	
 	/** map of versions, might be a replication of the above */
-	private static Map dictionaryVersionCache = new HashMap();
+	private static Map<String, SyntaxDictionary> dictionaryVersionCache = new HashMap<>();
 	
 	/** the dictionary config file in DOM form */
 	private static Document dictionaryConfig = null;
@@ -138,7 +138,7 @@ public class DictionaryManager {
 	/**
 	 * Tell the dictionaries to load based on the config file
 	 */
-	public static void initDictionaries() {
+	public static synchronized void initDictionaries() {
 		if (initialized) {
 			return;
 		}
@@ -180,7 +180,7 @@ public class DictionaryManager {
 	 * Tell the dictionaries to load based on the config file
 	 * @param prefs dictionary preferences
 	 */
-	public static void initDictionaries(DictionaryPreferences prefs) {
+	public static synchronized void initDictionaries(DictionaryPreferences prefs) {
 		fPrefs = prefs;
 		init();
 		initDictionaries();
@@ -251,7 +251,7 @@ public class DictionaryManager {
 	 * 
 	 * @param versionkey The version key used to load the grammar.
 	 */
-	public static void loadDictionaryByVersion(String versionkey) {
+	public static synchronized void loadDictionaryByVersion(String versionkey) {
 		SyntaxDictionary dic = getDictionaryByVersion(versionkey);
 		
 		if (dic == null) {
@@ -432,8 +432,11 @@ public class DictionaryManager {
 		} else if (cachekey != null && cachekey.length() > 0) {
 			return;
 		} else {
-			throw new IllegalArgumentException("Cache key: " + cachekey + " is not in the cache"
-					+ dictionariesCache.keySet().toString());
+			// Create a defensive copy of the keySet to avoid ConcurrentModificationException
+			synchronized (dictionariesCache) {
+				String keySetString = String.join(", ", dictionariesCache.keySet());
+				throw new IllegalArgumentException("Cache key: " + cachekey + " is not in the cache: " + keySetString);
+			}
 		}
 	}
 	
@@ -443,7 +446,7 @@ public class DictionaryManager {
 	 * @param key cache key string
 	 * @param sd syntax dictionary to add to cache
 	 */
-	public static void addDictionaryToCache(String key, SyntaxDictionary sd) {
+	public static synchronized void addDictionaryToCache(String key, SyntaxDictionary sd) {
 		dictionariesCache.put(key, sd);
 	}
 	
@@ -455,7 +458,7 @@ public class DictionaryManager {
 	 * @param sd
 	 *            the dictionary
 	 */
-	public static void addDictionary(String key, SyntaxDictionary sd) {
+	public static synchronized void addDictionary(String key, SyntaxDictionary sd) {
 		dictionaries.put(key, sd);
 	}
 	
@@ -466,9 +469,9 @@ public class DictionaryManager {
 	 *            the dictionary's key (often one of the statics above)
 	 * @return the dictionary
 	 */
-	public static SyntaxDictionary getDictionary(String key) {
+	public static synchronized SyntaxDictionary getDictionary(String key) {
 		// System.out.println("Getting dictionary " + key);
-		SyntaxDictionary dict = (SyntaxDictionary) dictionaries.get(key);
+		SyntaxDictionary dict = dictionaries.get(key);
 		// System.out.println("GOT: " + dict);
 		return dict;
 	}
@@ -476,15 +479,15 @@ public class DictionaryManager {
 	/**
 	 * @return Returns the live dictionaries.
 	 */
-	public static Map getDictionaries() {
+	public static Map<String, SyntaxDictionary> getDictionaries() {
 		return DictionaryManager.dictionaries;
 	}
 	
-	public static Map getDictionariesCache() {
+	public static Map<String, SyntaxDictionary> getDictionariesCache() {
 		return dictionariesCache;
 	}
 	
-	public static void setDictionariesCache(Map dictionariesCache) {
+	public static void setDictionariesCache(Map<String, SyntaxDictionary> dictionariesCache) {
 		DictionaryManager.dictionariesCache = dictionariesCache;
 	}
 }
