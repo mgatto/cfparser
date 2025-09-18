@@ -1,16 +1,16 @@
 plugins {
-	id "com.github.hierynomus.license" version "0.15.0"
+	// id "com.github.hierynomus.license" version "0.15.0"
 	id "com.diffplug.gradle.osgi.bndmanifest" version "3.18.1"
 	id 'net.researchgate.release' version '3.0.2' apply(false)
 }
 
-version = '2.15.0-SNAPSHOT'
+version = '2.16.0-VINSUITE-SNAPSHOT'
 
-license {
-	header rootProject.file('LICENSE')
-	exclude "./cfml.dictionary/**"
-	include "./cfml.parsing/**/*.java"
-}
+// license {
+	// header rootProject.file('LICENSE')
+	// exclude "./cfml.dictionary/**"
+	// include "./cfml.parsing/**/*.java"
+// }
 
 allprojects {
 	buildDir = rootProject.buildDir.path + File.separator + project.name
@@ -116,7 +116,7 @@ subprojects {
 	}
 
 	sourceCompatibility = 1.11
-	targetCompatibility = 1.11
+	targetCompatibility = 1.21
 	tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
 	task sourcesJar(type: Jar) {
