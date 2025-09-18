@@ -150,7 +150,8 @@ public abstract class SyntaxDictionary {
 	 */
 	public Set<Object> getAllScopes() {
 		Set<Object> total = new HashSet<Object>();
-		Set<String> keys = scopes.keySet();
+		// Create defensive copy to avoid ConcurrentModificationException
+		Set<String> keys = new HashSet<String>(scopes.keySet());
 		Iterator<String> it = keys.iterator();
 		String name = null;
 		while (it.hasNext()) {
@@ -169,7 +170,8 @@ public abstract class SyntaxDictionary {
 	 */
 	public Set<Object> getAllScopeVars() {
 		Set<Object> total = new HashSet<Object>();
-		Set<String> keys = scopeVars.keySet();
+		// Create defensive copy to avoid ConcurrentModificationException
+		Set<String> keys = new HashSet<String>(scopeVars.keySet());
 		Iterator<String> it = keys.iterator();
 		String name = null;
 		while (it.hasNext()) {
@@ -230,7 +232,8 @@ public abstract class SyntaxDictionary {
 	 * @return A set of matching elements.
 	 */
 	public Set<Parameter> getFunctionParams(String functionName) {
-		Set<String> entries = functions.keySet();
+		// Create defensive copy to avoid ConcurrentModificationException
+		Set<String> entries = new HashSet<String>(functions.keySet());
 		Iterator<String> i = entries.iterator();
 		try {
 			while (i.hasNext()) {

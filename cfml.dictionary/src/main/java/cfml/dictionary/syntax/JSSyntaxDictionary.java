@@ -75,7 +75,8 @@ public class JSSyntaxDictionary extends SyntaxDictionary implements ISyntaxDicti
 	 * @return functions keySet
 	 */
 	public Set getFunctions() {
-		return functions.keySet();
+		// Create defensive copy to avoid ConcurrentModificationException
+		return new HashSet(functions.keySet());
 	}
 	
 	public Set getAllElements() {

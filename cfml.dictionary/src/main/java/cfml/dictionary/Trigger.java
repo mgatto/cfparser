@@ -121,7 +121,9 @@ public class Trigger {
 			return false;
 		}
 		
-		Iterator m1Iter = m1.keySet().iterator();
+		// Create defensive copies to avoid ConcurrentModificationException
+		Set keySet1 = new HashSet(m1.keySet());
+		Iterator m1Iter = keySet1.iterator();
 		while (m1Iter.hasNext()) {
 			Object key = m1Iter.next();
 			if (m1.get(key) == null)
@@ -148,7 +150,7 @@ public class Trigger {
 	public int WillTrigger(HashMap params) {
 		// /System.out.print(" Trigger:WillTrigger() - ");
 		
-		if (triggerParams.size() == 0) {
+		if (triggerParams.isEmpty()) {
 			// System.out.println(" no trigger params, triggered and required");
 			return Parameter.PARAM_TRIGGERED | (isRequired ? Parameter.PARAM_REQUIRED : 0);
 		}
@@ -163,17 +165,15 @@ public class Trigger {
 			}
 		}
 		
-		Set paramSet = params.keySet();
+		// Create defensive copy to avoid ConcurrentModificationException
+		Set paramSet = new HashSet(params.keySet());
 		Iterator i = paramSet.iterator();
 		while (i.hasNext()) {
 			Object key = i.next();
 			String value = params.get(key).toString();
 			HashMap thisParam = new HashMap();
 			thisParam.put(key.toString(), value);
-			// System.out.println("Param");
-			// System.out.println(key.toString() + ":" + value);
-			// System.out.println("Trigger");
-			// System.out.println(this.toString());
+
 			if (this.triggerParams.toString().equalsIgnoreCase(thisParam.toString())) {
 				if (this.isRequired) {
 					return Parameter.PARAM_TRIGGERED | Parameter.PARAM_REQUIRED;
