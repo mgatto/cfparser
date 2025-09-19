@@ -1,16 +1,16 @@
 plugins {
-	// id "com.github.hierynomus.license" version "0.15.0"
-	id "com.diffplug.gradle.osgi.bndmanifest" version "3.18.1"
+	 id "com.github.hierynomus.license" version "0.16.1"
+	id "com.diffplug.gradle.osgi.bndmanifest" version "4.3.0"
 	id 'net.researchgate.release' version '3.0.2' apply(false)
 }
 
-version = '2.16.0-VINSUITE-SNAPSHOT'
+version = '2.16.0-SNAPSHOT'
 
-// license {
-	// header rootProject.file('LICENSE')
-	// exclude "./cfml.dictionary/**"
-	// include "./cfml.parsing/**/*.java"
-// }
+ license {
+	 header rootProject.file('LICENSE')
+	 exclude "./cfml.dictionary/**"
+	 include "./cfml.parsing/**/*.java"
+ }
 
 allprojects {
 	buildDir = rootProject.buildDir.path + File.separator + project.name
